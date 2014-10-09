@@ -1,0 +1,57 @@
+<template name="minecraft">
+    <style>
+    .controls {
+        position: absolute;
+        padding: 5px;
+        z-index: 10;
+    }
+    .swatch {
+        width: 32px;
+        height: 32px;
+        margin: 0 4px 4px 0;
+        border: 2px solid transparent;
+        display: inline-block;
+        cursor: pointer;
+    }
+    .swatch.active {
+        border-color: black;
+    }
+    </style>
+    <!-- color picker -->
+    <div class="controls">
+        {{#each colors}}
+        <div class="swatch {{active}}" style="background-color: {{this}}"></div>
+        {{/each}}
+    </div>
+
+    <x3d class="nogap">
+        <scene>
+            <!-- camera -->
+            <navigationinfo type="turntable"></navigationinfo>
+            <viewpoint position="8.19 12.33 19.5" orientation="-0.834 0.55 0 0.65"></viewpoint>
+
+            <!-- ground -->
+            <transform rotation="-1.5707 0 0 1.5707">
+                <shape>
+                    <appearance>
+                        <material diffuseColor="#2c3e50">
+                        </material>
+                    </appearance>
+                    <plane size="20 20"></plane>
+                </shape>
+            </transform>
+
+            <!-- boxes -->
+            {{#each boxes}}
+            <transform translation="{{x}} {{y}} {{z}}">
+                <shape id="{{_id}}">
+                    <appearance>
+                        <material diffuseColor="{{color}}" ambientIntensity="0.1"></material>
+                    </appearance>
+                    <box size="1 1 1"></box>
+                </shape>
+            </transform>
+            {{/each}}
+        </scene>
+    </x3d>
+</template>

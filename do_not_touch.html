@@ -1,0 +1,11 @@
+<template name="container">
+    {{#with module}}
+    <div class="container" style="height:{{heightpx}}px; width:{{widthpx}}px;margin:50px auto;position:relative;">
+        {{> UI.dynamic template=view data=data}}
+    </div>
+    {{/with}}
+</template>
+
+<body>
+    {{> container}}
+</body>
