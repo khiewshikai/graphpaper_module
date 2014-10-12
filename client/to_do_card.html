@@ -1,0 +1,116 @@
+<template name="todo">
+    <!-- // <script src="/bower_components/platform/platform.js"></script> -->
+    <!-- // <script src="/bower_components/jquery/dist/jquery.js"></script> -->
+    <!-- <link href="/bower_components/core-transition/core-transition-css.html" rel="import"> -->
+
+    <!-- import polymer elements -->
+    <!-- <link rel="import" href="/bower_components/paper-input/paper-input.html">
+    <link rel="import" href="/bower_components/paper-button/paper-button.html"> -->
+    <!-- <link rel="import" href="/bower_components/paper-checkbox/paper-checkbox.html"> -->
+
+    
+    <!-- {{#if mainPage}} -->
+    <!-- if toggle is true, load item list page -->
+    <div class="block full fullHeight">
+        <div class="block-title">
+            <div class="block-options pull-right">
+                <a class="btn btn-effect-ripple btn-default plusItemBtn"><i class="fa fa-plus"></i></a>
+            </div>
+            <h2>To Do List</h2>
+        </div>
+
+        <div class="toDoContainer overScroll">
+            <!-- loop through all the list item -->
+            {{#each toDoList}} {{#if items}}
+            
+            <header class="minusMargin">
+                <h2 class="text-info">{{key}} <span class="pull-right">{{progress}}</span></h2>
+            </header>
+
+            <!-- List Groups Content -->
+            <div class="list-group">
+                {{#each items}} 
+                <!-- to do item -->
+                <a href="javascript:void(0)" class="list-group-item itemPanel">
+                    <span class="pull-right">
+                        <paper-checkbox class="green completedCheck" checked="{{completed}}"></paper-checkbox>
+                    </span>
+
+                    <!-- <div class="strikeThroughFull"></div> -->
+
+                    <div class="strikeThrough"></div>
+                    <span class="itemHeading">{{title}}</span>
+                    <p class="list-group-item-text">{{prettyDate}}</p>
+                    <div class="toggleDiv">
+                        <div class="pull-right">
+                            <a class="btn btn-effect-ripple btn-default editBtn"><i class="fa fa-pencil"></i></a>
+                            <a class="btn btn-effect-ripple btn-default deleteBtn"><i class="fa fa-trash"></i></a>
+                        </div>
+                        <div class="list-group-item-text fullHeight">{{description}}</div>
+                    </div>
+                </a>
+                <!-- END to do item -->
+                {{/each}}
+            </div>
+            
+            {{/if}} {{/each}}
+            <!-- END loop for list -->
+        </div>
+
+    </div>
+
+    <!-- {{else}} -->
+    <!-- if toggle is false, load add new item page-->
+    <div class="block full fullHeight card2 dialog-content" id="animate_me">
+        <div class="block-title">
+            <div class="block-options pull-left">
+                <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default backArrowBtn" data-toggle="tooltip" title="Settings"><i class="fa fa-arrow-left"></i></a>
+            </div>
+            <h2>I want to ...</h2>
+        </div>
+
+        <!-- this part is form for add new to do item -->
+        <div class="toDoContainer">
+
+            <form>
+                <div class="form-group">
+                    <input type="text" name="title" class="form-control inputSpace" placeholder="Do something..." value="{{itemTitle}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="date" class="form-control input-datepicker inputSpace" data-date-format="dd/mm/yy" value="{{theDate}}" placeholder="dd/mm/yy">
+                </div>
+                <!-- Chosen plugin (class is initialized in js/app.js -> uiInit()), for extra usage examples you can check out http://harvesthq.github.io/chosen/ -->
+                <div class="form-group">
+                    <select name="category" class="select-chosen" data-placeholder="Choose..">
+                        <option></option><!-- Required for data-placeholder attribute to work with Chosen plugin -->
+                        <option value="99">Choose...</option>
+                        <option value="0">12 months +</option>
+                        <option value="1">9 - 12 months</option>
+                        <option value="2">6 - 8 months</option>
+                        <option value="3">2 - 5 months</option>
+                        <option value="4">1 month</option>
+                        <option value="5">2 weeks</option>
+                        <option value="6">1 week</option>
+                        <option value="7">1 day</option>
+                        <option value="8">Wedding day</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea name="description" rows="2" class="form-control inputSpace" placeholder="Description.."></textarea>
+                </div>
+
+                <!-- if it is edit mode -->
+                {{#if editSubmitBtn}}
+                <button type="button" class="btn btn-effect-ripple btn-primary pull-right" id="submitEdit">Update</button>
+                {{else}}
+                <button type="button" class="btn btn-effect-ripple btn-primary pull-right" id="submitAdd">Submit</button>
+                {{/if}}
+            </form>
+
+        </div>
+        <!-- END form -->
+
+    </div>
+
+    <!-- {{/if}} -->
+</template>

@@ -1,0 +1,114 @@
+/*scrollbar*/
+.overScroll {
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+.overScroll:hover {
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+/*for debug testing*/
+.redBorder {
+	border: 2px solid red;
+}
+
+/*stretch the card to 100%*/
+.fullHeight {
+	height: 100%;
+}
+
+/*container to store the content in card*/
+.toDoContainer {
+	margin-top: -20px;
+	margin-left: -20px;
+	margin-right: -20px;
+	margin-bottom: -20px;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	height: 100%;
+	width: auto;
+}
+
+.minusMargin {
+	margin-top: -10px;
+}
+
+.toggleDiv {
+	margin-top: 5px;
+	height: 40px;
+	display: none;
+}
+
+.itemHeading {
+	font-size: 18px;
+	font-weight: 700;
+	color: #757575;
+}
+
+.completedItem {
+	color: #AAB2BD;
+}
+
+.strikeThrough {
+	border-bottom: 1px solid #757575;
+	width: 0px;
+	min-height: 1px;
+	height: 5px;
+	top: 19px;
+	position: absolute;
+	z-index:5;
+}
+
+.strikeThroughFull {
+	border-bottom: 1px solid #AAB2BD;
+	width: 200px;
+	min-height: 1px;
+	height: 5px;
+	top: 19px;
+	position: absolute;
+	z-index:5;
+}
+
+.strikeCompleted {
+	border-bottom: 1px solid #AAB2BD;
+}
+
+/* to hide the overlay card at first*/
+.hiding {
+	height:0;
+}
+
+/* set card 2 for animation */
+.card2 {
+	top: 0;
+	position:absolute;
+	background-color: #ffffff;
+	z-index: 5;
+	width: 100%;
+}
+
+.dialog-content {
+    position: absolute;
+    bottom:0;
+    right: 0;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 0px 15px;
+}
+
+.animate1 {
+	position: absolute;
+    right: 0;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 0px 15px;
+    display: none;
+}
+
+.hideFirst {
+	display:none;
+}
+
