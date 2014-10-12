@@ -1,0 +1,219 @@
+<template name="discovery">
+
+    <!-- Main Card -->
+    <div class="block full fullHeight">
+        <!-- Header -->
+        <div class="block-title">
+            <div class="block-options pull-right">
+                <form action="#" method="post" class="navbar-form-custom search1">
+                    <input type="text" id="top-search" name="top-search" class="form-control" placeholder="Search.." style="height:30px; margin-top:-2px">
+                </form>
+            </div>
+            <h2>Discovery</h2>
+            <div class="btn-group dropdown">
+                <a href="#" data-toggle="dropdown" class="btn btn-default dropdown-toggle">
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu text-left">
+                    <li class="dropdown-header">
+                        <strong>Sort by</strong>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-cog pull-right"></i>
+                            Alphabetical Order
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-heart pull-right"></i>
+                            Likes
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- END Header -->
+
+        <!-- Content -->
+        <div class="toDoContainer overScroll">
+            <!-- loop out the categories -->
+            {{#each discoveryList}} 
+            <div class="catItem text-center">{{catName}}</div>
+            {{/each}}
+
+        </div>
+    </div>
+    <!-- END Main Card -->
+
+
+    <!-- Category card  -->
+    <div class="block full fullHeight categoryCard hiding" id="animate_discovery">
+        <div class="block-title">
+            <div class="block-options pull-left">
+                <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default backArrowBtn" data-toggle="tooltip" title="Settings"><i class="fa fa-arrow-left"></i></a>
+            </div>
+            <h2>{{category}}</h2>
+        </div>
+
+        <!-- content -->
+        <div class="toDoContainer greyBg overScroll">
+            {{#each categoryItems}} 
+
+            <!-- category item -->
+            <div class="catCard">
+                <div class="catImage">
+                    <img src="http://c300221.r21.cf1.rackcdn.com/cute-small-birds-photograph-by-photowork-by-sijanto-cute-small-birds-fine-art-prints-and-posters-for-sale-1368631899_org.jpg" alt="image">
+                </div>
+                <div class="catDescription">
+                    <div class="catTitle">{{title}}</div>
+                    <div class="catLikes">
+                        <span class="pull-right"><i class="gi gi-bookmark"></i></span>
+                        <span><i class="gi gi-heart text-danger"></i></span>
+                        <span class="likes">{{likes}}</span>
+                    </div>
+                </div>
+            </div>
+            <!-- END category item -->
+
+            {{/each}}                
+            
+        </div>   
+        <!-- END form -->
+    </div>
+    <!-- END Category card -->
+
+    <!-- Details card  -->
+    <div class="block full fullHeight card3" id="animate_discovery_details">
+        <div class="block-title">
+            <div class="block-options pull-left">
+                <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default backToCatBtn" data-toggle="tooltip" title="Settings"><i class="fa fa-arrow-left"></i></a>
+            </div>
+            <h2>Details</h2>
+        </div>
+
+        <!-- content container -->
+        <div class="toDoContainer">
+            <div class="block-content-full fullHeight redBorder">
+
+                <!-- Slider Div -->
+                <div id="info-carousel" class="carousel slide remove-margin blueBorder sliderContainer">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#info-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#info-carousel" data-slide-to="1"></li>
+                        <li data-target="#info-carousel" data-slide-to="2"></li>
+                        <li data-target="#info-carousel" data-slide-to="3"></li>
+                    </ol>
+                    <!-- END Indicators -->
+
+                    <!-- Wrapper for slides -->
+                    <div class="picPanel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="http://curiousanimals.net/wp-content/uploads/2007/10/oddanimals-mocha.jpg" alt="image">
+                                <div class="carousel-caption">
+                                    <h3>
+                                        <strong>City by Night</strong>
+                                    </h3>
+                                </div>
+                            </div>
+                            <!-- <div class="item active redBorder">
+                                <img src="http://curiousanimals.net/wp-content/uploads/2007/10/oddanimals-mocha.jpg" alt="image">
+                                <div class="carousel-caption">
+                                    <h3>
+                                        <strong>City by Night</strong>
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="http://stylonica.com/wp-content/uploads/2014/02/cute-colorful-backgrounds-background-wallpapers-colour-images-colorful-backgrounds.jpg" alt="image">
+                                <div class="carousel-caption">
+                                    <h3>
+                                        <strong>Lonely Road</strong>
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="http://funny-pics-fun.com/wp-content/uploads/Small-And-Cute-Animals-16.jpg" alt="image">
+                                <div class="carousel-caption">
+                                    <h3>
+                                        <strong>Yummy Pizza</strong>
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="http://www.thewallpapers.org/photo/21913/Dog.jpg" alt="image">
+                                <div class="carousel-caption">
+                                    <h3>
+                                        <strong>City in the Clouds</strong>
+                                    </h3>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <!-- END Wrapper for slides -->
+
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#info-carousel" data-slide="prev">
+                        <span><i class="fa fa-chevron-left"></i>
+                        </span>
+                    </a>
+                    <a class="right carousel-control" href="#info-carousel" data-slide="next">
+                        <span><i class="fa fa-chevron-right"></i>
+                        </span>
+                    </a>
+                    <!-- END Controls -->
+                </div>
+                <!-- END Slider Div -->
+
+                <!-- item description here -->
+                <div class="">
+                    <div class="title1">
+                        <h3>Title</h3>
+                        <i class="fa fa-heart-o"></i> 9.5k
+                    </div>
+                    <h4>
+                        <div>
+                            <div class="fieldNames">
+                                Address:
+                                <br>Telephone:
+                                <br>Email:
+                                <br>Website:
+                                <br>
+                            </div>
+                            <div class="fieldValues">
+                                <u>
+                                    123 Marina Bay 456 Singapore 987654 <br>
+                                    99512345 <br>
+                                    lala@popo.com <br>
+                                    donotvisit@dontvisit.com <br>
+                                </u>
+                            </div>
+                        </div>
+                    </h4>
+                    <div class="buttons1">
+                        <core-icon-button>
+                            <core-icon icon="favorite" aria-label="favorite" role="img"></core-icon>
+                            <span>Like</span>
+                        </core-icon-button>
+
+                        <core-icon-button>
+                            <core-icon icon="grade" aria-label="grade" role="img"></core-icon>
+                            <span>Add to Note</span>
+                        </core-icon-button>
+                    </div>
+                </div>
+
+    </div>
+    <!-- END block content full -->
+</div>   
+<!-- END content container -->
+</div>
+<!-- END details card -->
+
+
+
+
+
+</template>
